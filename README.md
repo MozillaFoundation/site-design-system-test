@@ -1,1 +1,3 @@
-New Foundation Site Design System Font Test
+New Foundation Site Design System Test
+
+https://mozillafoundation.github.io/site-design-system-test/
