@@ -1,0 +1,71 @@
+/* Mozilla Headline Fonts */
+
+/* Condensed */
+@font-face {
+    font-family: 'MozillaHeadlineCondensed';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Condensed/MozillaHeadlineCondensed-Regular.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Condensed/MozillaHeadlineCondensed-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MozillaHeadlineCondensed';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Condensed/MozillaHeadlineCondensed-Bold.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Condensed/MozillaHeadlineCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Extended */
+@font-face {
+    font-family: 'MozillaHeadlineExtended';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Extended/MozillaHeadlineExtended-Regular.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Extended/MozillaHeadlineExtended-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MozillaHeadlineExtended';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Extended/MozillaHeadlineExtended-Bold.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Extended/MozillaHeadlineExtended-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Standard */
+@font-face {
+    font-family: 'MozillaHeadline';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Standard/MozillaHeadline-Regular.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Standard/MozillaHeadline-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MozillaHeadline';
+    src: url('../fonts/Mozilla Headline/Web Fonts/Standard/MozillaHeadline-Bold.woff2') format('woff2'),
+         url('../fonts/Mozilla Headline/Web Fonts/Standard/MozillaHeadline-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Mozilla Text Fonts */
+
+/* Standard */
+@font-face {
+    font-family: 'MozillaText';
+    src: url('../fonts/Mozilla Text/Web Fonts/Standard/MozillaText-Regular.woff2') format('woff2'),
+         url('../fonts/Mozilla Text/Web Fonts/Standard/MozillaText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MozillaText';
+    src: url('../fonts/Mozilla Text/Web Fonts/Standard/MozillaText-Bold.woff2') format('woff2'),
+         url('../fonts/Mozilla Text/Web Fonts/Standard/MozillaText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
