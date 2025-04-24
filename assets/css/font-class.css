@@ -25,6 +25,11 @@
     font-weight: 600; /* Semi-Bold weight */
 }
 
+.moz-headline-condensed-italic {
+    font-family: 'MozillaHeadlineCondensed', sans-serif;
+    font-style: italic; /* Italic weight */
+}
+
 /* Extended */
 .moz-headline-extended {
     font-family: 'MozillaHeadlineExtended', sans-serif;
@@ -50,6 +55,11 @@
     font-weight: 600; /* Semi-Bold weight */
 }
 
+.moz-headline-extended-italic {
+    font-family: 'MozillaHeadlineExtended', sans-serif;
+    font-style: italic; /* Italic weight */
+}
+
 /* Standard */
 .moz-headline {
     font-family: 'MozillaHeadline', sans-serif;
@@ -65,6 +75,11 @@
     font-style: italic;
 }
 
+.moz-headline-light {
+    font-family: 'MozillaHeadline', sans-serif;
+    font-weight: 300; /* Light weight */
+}
+
 .moz-headline-extra-light {
     font-family: 'MozillaHeadline', sans-serif;
     font-weight: 200; /* Extra Light weight */
@@ -74,7 +89,6 @@
     font-family: 'MozillaHeadline', sans-serif;
     font-weight: 600; /* Semi-Bold weight */
 }
-
 
 /* Mozilla Text Fonts */
 
@@ -91,6 +105,11 @@
 .moz-text-italic {
     font-family: 'MozillaText', sans-serif;
     font-style: italic;
+}
+
+.moz-text-light {
+    font-family: 'MozillaText', sans-serif;
+    font-weight: 300; /* Light weight */
 }
 
 .moz-text-extra-light {
