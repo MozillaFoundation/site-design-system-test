@@ -1,0 +1,6 @@
+<div class="grid-x grid-margin-x">
+  {% for cell in cells %}
+    {% set current = cell %}
+    {% include "partials/layout/cell.njk" %}
+  {% endfor %}
+</div>

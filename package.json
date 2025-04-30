@@ -1,0 +1,16 @@
+{
+  "name": "site-design-system-test",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "node render.js",
+    "watch": "npm run build && chokidar 'templates/**/*.njk' 'assets/**/*' -c 'npm run build'"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "foundation-sites": "^6.9.0"
+  }
+}
