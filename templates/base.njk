@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}New Foundation Site Design System{% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="assets/vendor/foundation.min.css" />
+
+    <link rel="stylesheet" href="assets/css/font.css" />
+    <link rel="stylesheet" href="assets/css/font-class.css" />
+    <link rel="stylesheet" href="assets/css/grid-underlay.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    {% block additional_style %} {% endblock %}
+  </head>
+  <body>
+    <div
+      class="grid-container"
+      style="border: 1px solid #555; border-top: none; border-bottom: none"
+    >
+      {% block content %} {% endblock %}
+    </div>
+
+    <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/grid-underlay.js"></script>
+  </body>
+</html>
