@@ -1,9 +1,10 @@
-New Foundation Site Design System Test
+**New Foundation Site Design System Test**
 
 https://mozillafoundation.github.io/site-design-system-test/
 
+---
 
-# To run locally
+To run locally:
 
 1. Clone the repo
 2. `npm install`
