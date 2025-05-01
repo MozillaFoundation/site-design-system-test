@@ -19,7 +19,9 @@ elements.forEach(element => {
     const computedStyle = getComputedStyle(element);
 
     // Generate a string of CSS properties to display
-    const styles = `
+    const content =
+      `${element.textContent.trim()}
+      / / / / / / / /
       font-family: ${computedStyle.fontFamily};
       font-size: ${computedStyle.fontSize} (=${pxToRem(computedStyle.fontSize)}rem);
       line-height: ${computedStyle.lineHeight} (=${pxToRem(computedStyle.lineHeight)}rem);
@@ -27,7 +29,7 @@ elements.forEach(element => {
       font-style: ${computedStyle.fontStyle};
     `;
 
-    tooltip.innerText = styles;
+    tooltip.innerText = content;
 
     // Position the tooltip near the hovered element
     const rect = element.getBoundingClientRect();
