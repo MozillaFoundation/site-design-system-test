@@ -1,9 +1,10 @@
 {% extends "base.njk" %}
+{% import "../partials/page-header.njk" as pageHeader %}
 
-{% block title %}New Foundation Site Design System - Type Test{% endblock %}
+{% block title %}Type Test{% endblock %}
 
 {% block content %}
   {% include "../partials/grid-container-underlay.njk" %}
-  {% include "../partials/type-header.njk" %}
+  {{ pageHeader.setHeader("Type Test") }}
   {% include "../partials/type-sections.njk" %}
 {% endblock %}

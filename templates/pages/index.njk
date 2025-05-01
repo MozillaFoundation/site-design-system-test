@@ -1,7 +1,11 @@
 {% extends "base.njk" %}
 
-{% block title %}
-Home - New Foundation Site Design System
+{% block additional_style %}
+<style>
+ul li {
+  font-size: 2rem;
+}
+</style>
 {% endblock %}
 
 {% block nav %}{% endblock %}
@@ -20,12 +24,15 @@ Home - New Foundation Site Design System
 <section>
   <div class="grid-x grid-margin-x">
     <div class="cell small-12 medium-8 large-8 medium-offset-2 large-offset-2">
-      <ul class="no-bullet text-center">
+      <ul class="no-bullet">
         <li>
-          <h3><a href="type.html">Type</a></h3>
+          <a href="type.html">Type</a>
         </li>
         <li>
-          <h3><a href="layout.html">Layout (Columns)</a></h3>
+          <a href="layout.html">Layout (Columns)</a>
+        </li>
+        <li>
+          <a href="hero-accordion.html">Hero Accordion</a>
         </li>
       </ul>
     </div>

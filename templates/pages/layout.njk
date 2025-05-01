@@ -1,6 +1,7 @@
 {% extends "base.njk" %}
+{% import "../partials/page-header.njk" as pageHeader %}
 
-{% block title %}Layout Test - New Foundation Site Design System{% endblock %}
+{% block title %}Layout Test{% endblock %}
 
 {% block additional_style %}
 <style>
@@ -25,15 +26,7 @@
 
   {% include "partials/grid-container-underlay.njk" %}
 
-  <section class="header-section text-center" style="margin: 30px 0">
-    <h1 class="header-title">Layout Test</h1>
-    <p class="intro-text">
-      New Foundation Site Design System Tests using
-      <strong>Mozilla Type Family</strong> and
-      <strong>Foundation Framework</strong>
-    </p>
-    <button class="button" id="toggleUnderlayBtn">Toggle Grid Underlay</button>
-  </section>
+  {{ pageHeader.setHeader("Layout Test") }}
 
   <!-- Layout Section -->
   <section>
