@@ -116,7 +116,7 @@ h6 {
   font-family: 'MozillaText', sans-serif;
   font-size: 1.25rem; /* 18px */
   font-weight: normal;
-  line-height: auto;
+  line-height: 1.6875rem;  /* 27px */
 }
 
 .figma-body-text-regular {
