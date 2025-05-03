@@ -7,8 +7,8 @@ const templatesDir = path.join(__dirname, 'templates/pages');
 const outputDir = path.join(__dirname, 'docs');
 const assetsDir = path.join(__dirname, 'assets');
 const outputAssetsDir = path.join(outputDir, 'assets');
-const foundationCSS = path.join(__dirname, 'node_modules/foundation-sites/dist/css/foundation.min.css');
-const foundationDest = path.join(outputDir, 'assets/vendor/foundation.min.css');
+// const foundationCSS = path.join(__dirname, 'node_modules/foundation-sites/dist/css/foundation.min.css');
+// const foundationDest = path.join(outputDir, 'assets/vendor/foundation.min.css');
 
 // Setup Nunjucks (search paths start at templates/)
 nunjucks.configure('templates', { autoescape: true });
@@ -38,6 +38,12 @@ function copyFolderSync(source, destination) {
   }
 
   fs.readdirSync(source).forEach(item => {
+    // Skip 'css' directory at the root of assets
+    if (source === assetsDir && item === 'css') {
+      console.log('🚫 Skipped copying assets/css');
+      return;
+    }
+
     const srcPath = path.join(source, item);
     const destPath = path.join(destination, item);
 
@@ -49,16 +55,10 @@ function copyFolderSync(source, destination) {
   });
 }
 
-// Clean output folder
-if (fs.existsSync(outputDir)) {
-  fs.rmSync(outputDir, { recursive: true, force: true });
-  console.log('🧹 Cleaned previous build.');
-}
-
 // Copy Foundation CSS from node_modules to docs/assets/vendor
-fs.mkdirSync(path.dirname(foundationDest), { recursive: true });
-fs.copyFileSync(foundationCSS, foundationDest);
-console.log('📦 Copied Foundation CSS from node_modules.');
+// fs.mkdirSync(path.dirname(foundationDest), { recursive: true });
+// fs.copyFileSync(foundationCSS, foundationDest);
+// console.log('📦 Copied Foundation CSS from node_modules.');
 
 // Render all .njk pages
 fs.readdirSync(templatesDir).forEach(file => {
