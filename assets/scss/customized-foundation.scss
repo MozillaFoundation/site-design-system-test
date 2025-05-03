@@ -9,12 +9,5 @@
 @include foundation.foundation-forms;
 @include foundation.foundation-typography;
 @include foundation.foundation-xy-grid-classes;
+@include foundation.foundation-button;
 
-body {
-  background: white !important;
-}
-
-.test-grid {
-  @include foundation.xy-grid-container;
-  @include foundation.xy-grid;
-}

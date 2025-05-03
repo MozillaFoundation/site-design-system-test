@@ -16,9 +16,11 @@
   </head>
   <body>
     {% block nav %}
-      <nav class="text-center" style="margin-bottom: 2rem;">
-        <a href="index.html">Back to Index</a>
+    <div class="grid-container" style="background: transparent;">
+      <nav class="text-right">
+        <a href="index.html" class="button fill-up-btn">Back to Index</a>
       </nav>
+    </div>
     {% endblock %}
 
     {% block content %}{% endblock %}
