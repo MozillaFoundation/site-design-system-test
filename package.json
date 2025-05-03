@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "scripts": {
     "clean": "rm -rf docs",
-    "copy:css": "mkdir -p docs/assets/css && cpx \"assets/css/**/*.css\" docs/assets/css/ --verbose",
-    "build:sass": "sass --quiet-deps --load-path=node_modules assets/scss:assets/css",
+    "build:sass": "sass --quiet-deps --load-path=node_modules assets/scss:docs/assets/css --verbose",
     "build": "node render.js",
-    "build:all": "npm run clean && npm run build:sass && npm run copy:css && npm run build",
+    "build:all": "npm run clean && npm run build:sass && npm run build",
     "watch:templates": "chokidar 'templates/**/*.njk' -c 'npm run build'",
-    "watch:sass": "chokidar 'assets/scss/**/*.scss' -c 'npm run build:sass && npm run copy:css'",
+    "watch:sass": "chokidar \"assets/scss/**/*.scss\" --initial -c \"npm run build:sass\"",
     "chokidar": "npm-run-all --parallel watch:templates watch:sass",
     "serve": "browser-sync start --server 'docs' --files 'docs/**/*' --port 3100",
     "watch": "npm-run-all build:all --parallel chokidar serve"

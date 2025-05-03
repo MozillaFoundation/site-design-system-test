@@ -38,9 +38,9 @@ function copyFolderSync(source, destination) {
   }
 
   fs.readdirSync(source).forEach(item => {
-    // Skip 'css' directory at the root of assets
-    if (source === assetsDir && item === 'css') {
-      console.log('🚫 Skipped copying assets/css');
+    // Skip 'scss' directory at the root of assets
+    if (source === assetsDir && item === 'scss') {
+      console.log('🚫 Skipped copying assets/scss');
       return;
     }
 
