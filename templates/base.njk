@@ -12,8 +12,9 @@
   <body>
     {% block nav %}
     <div class="grid-container" style="background: transparent;">
-      <nav class="text-right">
+      <nav style="display: flex; justify-content: space-between;">
         <a href="index.html" class="button fill-up-btn">Back to Index</a>
+        <button class="button" id="toggleUnderlayBtn">Toggle Grid Underlay</button>
       </nav>
     </div>
     {% endblock %}
