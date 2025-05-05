@@ -1,0 +1,48 @@
+.hero-accordion {
+  width: 100vw;
+  height: 400px;
+  display: flex;
+
+  .panel {
+    flex: 1;
+    transition: flex 0.5s ease;
+    background-size: cover;
+    background-position: center;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem-calc(32);
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      flex: 5;
+    }
+
+    &:nth-child(1) {
+      background-color: pink;
+    }
+
+    &:nth-child(2) {
+      background-color: salmon;
+    }
+
+    &:nth-child(3) {
+      background-color: red;
+    }
+  }
+
+  @include breakpoint(small down) {
+    flex-direction: column;
+
+    .panel {
+      flex: auto;
+      height: 25vh;
+
+      &:hover {
+        flex: auto; // disable accordion behavior? is this what we want?
+      }
+    }
+  }
+}
