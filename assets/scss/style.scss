@@ -1,3 +1,18 @@
+@import "base/settings";
+@import "../../node_modules/foundation-sites/scss/foundation";
+
+// Foundation Modules
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+@include foundation-xy-grid-classes;
+@include foundation-button;
+
+@import "components/font-class";
+@import "components/font";
+@import "components/grid-underlay";
+@import "components/hero-accordion";
+
 body {
   background: #e9e9e9;
   padding: 2rem 0;

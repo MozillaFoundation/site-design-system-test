@@ -1,0 +1,34 @@
+{% extends "base.njk" %}
+{% import "../partials/page-header.njk" as pageHeader %}
+
+{% block additional_style %}
+
+{% endblock%}
+
+{% block title %}Hero Accordion Test{% endblock %}
+
+{% block content %}
+<div class="grid-container">
+  {% include "../partials/grid-container-underlay.njk" %}
+  {{ pageHeader.setHeader("Hero Accordion Test") }}
+</div>
+
+<div class="hero-accordion">
+  <div class="panel" data-title="Panel 1">Content 1</div>
+  <div class="panel" data-title="Panel 2">Content 2</div>
+  <div class="panel" data-title="Panel 3">Content 3</div>
+</div>
+
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-12">
+      <p style="margin-top: 2rem;">
+        Danish cookie pie brownie tiramisu. Muffin caramels carrot cake pastry cheesecake chocolate bar danish. Gummi bears chocolate cake gummi bears brownie sesame snaps. Gummi bears ice cream dragée gummi bears pudding. Tiramisu danish wafer croissant biscuit toffee marzipan. Sugar plum gummies caramels danish chocolate apple pie shortbread. Dragée muffin wafer wafer sugar plum powder. Tart jujubes marzipan jelly beans marshmallow cake gingerbread dragée fruitcake. Chocolate cake donut biscuit topping tootsie roll marzipan sugar plum soufflé. Jelly beans biscuit tiramisu jelly beans lemon drops soufflé. Tootsie roll biscuit toffee pie chocolate bar. Icing icing candy canes gummi bears cotton candy chupa chups tart jelly sweet roll.
+      </p>
+      <p>
+        Croissant toffee chupa chups chocolate cake dessert liquorice. Chocolate sesame snaps jelly beans chocolate cake jelly beans icing chocolate cake. Bear claw cake marzipan topping oat cake icing jujubes chocolate bar. Marzipan brownie marshmallow lollipop powder shortbread pastry cake shortbread. Soufflé dragée caramels brownie danish tart. Tart cake dessert cookie jujubes tart. Muffin lemon drops icing cake wafer cookie cotton candy ice cream. Tiramisu apple pie powder cupcake marzipan muffin lemon drops. Chocolate cake jujubes danish icing bonbon. Chupa chups brownie dessert cookie cupcake. Icing biscuit sweet sugar plum fruitcake sweet roll tart cake ice cream. Apple pie caramels chocolate cake jelly beans dessert cotton candy pie.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

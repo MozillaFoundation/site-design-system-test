@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "clean": "rm -rf docs",
-    "build:sass": "sass --quiet-deps --load-path=node_modules assets/scss:docs/assets/css --verbose",
+    "build:sass": "sass assets/scss/style.scss:docs/assets/css/style.css",
     "build": "node render.js",
     "build:all": "npm run clean && npm run build:sass && npm run build",
     "watch:js": "chokidar \"assets/js/**/*.js\" --initial -c \"npm run build\"",
