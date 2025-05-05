@@ -13,11 +13,18 @@
   {{ pageHeader.setHeader("Hero Accordion Test") }}
 </div>
 
-<div class="hero-accordion">
-  <div class="panel" data-title="Panel 1">Content 1</div>
-  <div class="panel" data-title="Panel 2">Content 2</div>
-  <div class="panel" data-title="Panel 3">Content 3</div>
+<div class="hero-accordion" role="tablist" aria-label="Hero accordion">
+  <button class="panel is-expanded" role="tab" aria-selected="true" aria-controls="panel1" id="tab1">
+    <div class="panel-content figma-label-large" id="panel1">Campaign Feature</div>
+  </button>
+  <button class="panel" role="tab" aria-selected="false" aria-controls="panel2" id="tab2">
+    <div class="panel-content figma-label-large" id="panel2">Interview Spotlight</div>
+  </button>
+  <button class="panel" role="tab" aria-selected="false" aria-controls="panel3" id="tab3">
+    <div class="panel-content figma-label-large" id="panel3">June 10, 2025</div>
+  </button>
 </div>
+
 
 <div class="grid-container">
   <div class="grid-x grid-margin-x">
@@ -28,7 +35,24 @@
       <p>
         Croissant toffee chupa chups chocolate cake dessert liquorice. Chocolate sesame snaps jelly beans chocolate cake jelly beans icing chocolate cake. Bear claw cake marzipan topping oat cake icing jujubes chocolate bar. Marzipan brownie marshmallow lollipop powder shortbread pastry cake shortbread. Soufflé dragée caramels brownie danish tart. Tart cake dessert cookie jujubes tart. Muffin lemon drops icing cake wafer cookie cotton candy ice cream. Tiramisu apple pie powder cupcake marzipan muffin lemon drops. Chocolate cake jujubes danish icing bonbon. Chupa chups brownie dessert cookie cupcake. Icing biscuit sweet sugar plum fruitcake sweet roll tart cake ice cream. Apple pie caramels chocolate cake jelly beans dessert cotton candy pie.
       </p>
+      <p>
+        Cookie jujubes chocolate fruitcake gummies caramels sweet roll. Sweet roll macaroon sweet roll marzipan lemon drops bear claw. Carrot cake caramels lemon drops halvah carrot cake brownie marzipan soufflé. Croissant topping muffin sweet cake tootsie roll. Lemon drops marshmallow pie lollipop macaroon candy soufflé pastry. Carrot cake topping icing pie sweet roll pastry. Croissant soufflé chocolate bar sugar plum cookie oat cake tart macaroon. Gummies tiramisu chupa chups carrot cake cotton candy toffee sugar plum sesame snaps sweet. Croissant topping icing croissant icing macaroon dessert. Biscuit fruitcake sweet roll croissant jujubes cheesecake pudding. Halvah liquorice dessert toffee cotton candy cupcake cookie. Toffee fruitcake pie halvah pastry cake chocolate bar candy tiramisu. Icing toffee jujubes apple pie fruitcake tiramisu topping. Donut topping cheesecake jelly beans sweet roll croissant.
+      </p>
     </div>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.hero-accordion .panel').forEach(panel => {
+    panel.addEventListener('click', () => {
+      document.querySelectorAll('.hero-accordion .panel').forEach(p => {
+        p.classList.remove('is-expanded');
+        p.setAttribute('aria-selected', 'false');
+      });
+
+      panel.classList.add('is-expanded');
+      panel.setAttribute('aria-selected', 'true');
+    });
+  });
+</script>
 {% endblock %}
