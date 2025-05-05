@@ -696,7 +696,7 @@ a img {
 
 hr {
   clear: both;
-  max-width: 75rem;
+  max-width: 90rem;
   height: 0;
   margin: 1.25rem auto;
   border-top: 0;
@@ -955,30 +955,18 @@ ul.no-bullet, ol.no-bullet {
   }
 }
 .grid-container {
-  max-width: 75rem;
+  max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-@media print, screen and (min-width: 40em) {
-  .grid-container {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .grid-container.fluid {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-@media print, screen and (min-width: 40em) {
-  .grid-container.fluid {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .grid-container.full {
   max-width: 100%;
@@ -3466,13 +3454,13 @@ a.button:hover, a.button:focus {
   z-index: -1;
   height: 100%;
   width: 100%;
-  margin-left: -10px; /* Offset additional space/padding that might be applied by a nested .grid-container */
+  margin-left: -16px; /* Offset additional space/padding that might be applied by a nested .grid-container. This basically -($grid-container-padding/2) */
 }
 
 /* Apply margin-left of 15px for medium devices */
 @media screen and (min-width: 640px) {
   .grid-container-underlay {
-    margin-left: -15px; /* Offset additional space/padding that might be applied by a nested .grid-container */
+    margin-left: -16px; /* Offset additional space/padding that might be applied by a nested .grid-container. This basically -($grid-container-padding/2) */
   }
 }
 .grid-container-underlay .grid-container {
