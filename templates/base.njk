@@ -7,7 +7,7 @@
       {% block title %}New Foundation Site Design System Tests{% endblock %}
     </title>
 
-    <link rel="stylesheet" href="assets/vendor/foundation.min.css" />
+    <link rel="stylesheet" href="assets/css/customized-foundation.css" />
     <link rel="stylesheet" href="assets/css/font.css" />
     <link rel="stylesheet" href="assets/css/font-class.css" />
     <link rel="stylesheet" href="assets/css/grid-underlay.css" />
@@ -16,9 +16,11 @@
   </head>
   <body>
     {% block nav %}
-      <nav class="text-center" style="margin-bottom: 2rem;">
-        <a href="index.html">Back to Index</a>
+    <div class="grid-container" style="background: transparent;">
+      <nav class="text-right">
+        <a href="index.html" class="button fill-up-btn">Back to Index</a>
       </nav>
+    </div>
     {% endblock %}
 
     {% block content %}{% endblock %}
