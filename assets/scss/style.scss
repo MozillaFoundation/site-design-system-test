@@ -86,6 +86,14 @@ h2.section-title {
   background: white;
 }
 
+.cell.placeholder {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  .cell-inner {
+    background: #dad8d878;
+  }
+}
+
 /* ----------------------------------- */
 
 /* Heading Sizes */

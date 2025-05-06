@@ -3636,6 +3636,14 @@ h2.section-title {
   background: white;
 }
 
+.cell.placeholder {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.cell.placeholder .cell-inner {
+  background: rgba(218, 216, 216, 0.4705882353);
+}
+
 /* ----------------------------------- */
 /* Heading Sizes */
 /* Heading Sizes Based on Figma Annotations */

@@ -1,6 +1,5 @@
-<div class="cell {{ cell.size }} {% if cell.offset %}{{ cell.offset }}{% endif %}">
-  <div class="cell-inner">
+<div class="cell placeholder {{ cell.size }} {% if cell.offset %}{{ cell.offset }}{% endif %}">
+  <div class="cell-inner" style="height: {{ cell.height | default('200px') }}">
     <p class="column-note">{{ cell.note }}</p>
-    <p>Brownie topping tiramisu soufflé danish. Marshmallow liquorice bonbon liquorice dessert. Marzipan candy chocolate donut gingerbread. Marzipan soufflé gingerbread fruitcake carrot cake soufflé candy canes biscuit. Dessert jelly tootsie roll jelly-o marshmallow sweet roll.</p>
   </div>
 </div>
