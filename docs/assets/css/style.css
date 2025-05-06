@@ -3495,6 +3495,7 @@ a.button:hover, a.button:focus {
 
 .hero-accordion {
   background: white;
+  max-width: 100%;
   width: 100vw;
   height: 300px;
   display: flex;
@@ -3574,6 +3575,47 @@ a.button:hover, a.button:focus {
     height: auto;
     aspect-ratio: 16/9;
   }
+}
+
+.rolling-phrases {
+  --line-height-multiplier: 1.05;
+  --animation-duration-in-ms: 600;
+  line-height: 1.05;
+  padding: 1rem 0 3rem 0;
+  margin-bottom: 0;
+}
+.rolling-phrases .phrase-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  height: calc(1em * var(--line-height-multiplier));
+  vertical-align: bottom;
+}
+.rolling-phrases .phrase-list {
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--animation-duration-in-ms) ms ease-in-out;
+  will-change: transform;
+}
+.rolling-phrases .phrase {
+  height: calc(1em * var(--line-height-multiplier));
+  line-height: calc(1em * var(--line-height-multiplier));
+  font-weight: bold;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rolling-phrases .phrase-list {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+.rolling-phrases .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 body {
@@ -3657,7 +3699,8 @@ h2.section-title {
 /* ----------------------------------- */
 /* Heading Sizes */
 /* Heading Sizes Based on Figma Annotations */
-h1 {
+h1,
+.figma-heading-1 {
   font-family: "MozillaHeadline", sans-serif;
   font-size: 5.75rem; /* 92px */
   font-weight: 200; /* ExtraLight */

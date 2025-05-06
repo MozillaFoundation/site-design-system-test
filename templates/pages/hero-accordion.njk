@@ -10,7 +10,26 @@
 {% block content %}
 <div class="grid-container">
   {% include "../partials/grid-container-underlay.njk" %}
-  {{ pageHeader.setHeader("Hero Accordion Test") }}
+  {# {{ pageHeader.setHeader("Hero Accordion Test") }} #}
+  <h1 style="font-size: 9.9rem; padding: 5rem 0 2rem 0; font-weight: 800;">
+    {# <img src="assets/images/mozilla-wordmark_counter-fills.svg" /> #}
+    Mozilla Foundation
+  </h1>
+  <h2 class="figma-heading-1 rolling-phrases">
+    <span aria-hidden="true">
+      Make good
+      <span class="phrase-wrapper">
+        <span class="phrase-list">
+          <span class="phrase">tech the norm</span>
+          <span class="phrase">things together</span>
+          <span class="phrase">ideas matter</span>
+        </span>
+      </span>
+    </span>
+    <span class="sr-only">Make tech the norm, things together, ideas matter</span>
+  </h2>
+
+
 </div>
 
 <div class="hero-accordion" role="tablist" aria-label="Hero accordion">
@@ -60,9 +79,9 @@
   {% include "partials/layout/row.njk" %}
 
   {% set cells = [
-    { size: "small-4", note: "4-column wide" },
-    { size: "small-4", note: "4-column wide" },
-    { size: "small-4", note: "4-column wide" }
+    { size: "small-4", note: "4-column wide", height: "400px" },
+    { size: "small-4", note: "4-column wide", height: "400px" },
+    { size: "small-4", note: "4-column wide", height: "400px" }
   ] %}
   {% include "partials/layout/row.njk" %}
 
@@ -80,18 +99,9 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
-<script>
-  document.querySelectorAll('.hero-accordion .panel').forEach(panel => {
-    panel.addEventListener('click', () => {
-      document.querySelectorAll('.hero-accordion .panel').forEach(p => {
-        p.classList.remove('is-expanded');
-        p.setAttribute('aria-selected', 'false');
-      });
-
-      panel.classList.add('is-expanded');
-      panel.setAttribute('aria-selected', 'true');
-    });
-  });
-</script>
+{% block additional_script %}
+  <script src="assets/js/rolling-phrases.js"></script>
+  <script src="assets/js/hero-accordion.js"></script>
 {% endblock %}

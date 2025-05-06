@@ -12,6 +12,7 @@
 @import "components/font";
 @import "components/grid-underlay";
 @import "components/hero-accordion";
+@import "components/rolling-phrases";
 
 body {
   background: #e9e9e9;
@@ -98,7 +99,8 @@ h2.section-title {
 
 /* Heading Sizes */
 /* Heading Sizes Based on Figma Annotations */
-h1 {
+h1,
+.figma-heading-1 {
   font-family: 'MozillaHeadline', sans-serif;
   font-size: 5.75rem; /* 92px */
   font-weight: 200; /* ExtraLight */
