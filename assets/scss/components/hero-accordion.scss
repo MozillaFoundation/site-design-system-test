@@ -1,15 +1,21 @@
 .hero-accordion {
   $expanded-panel-ratio: 16 / 9;
   $height-small: 300px;
-  $height-large: 500px;
+  $height-medium: 300px;
+  $height-large: 400px;
   $height-xxlarge: 600px;
 
   background: white;
+  max-width: 100%;
   width: 100vw;
   height: $height-small;
   display: flex;
   overflow: hidden;
   gap: 1rem;
+
+  @include breakpoint(medium up) {
+    height: $height-medium;
+  }
 
   @include breakpoint(large up) {
     height: $height-large;
@@ -21,7 +27,7 @@
 
   .panel {
     flex: 1;
-    transition: flex 1s ease;
+    transition: flex 0.5s ease;
     background-size: cover;
     background-position: center;
     background: rgb(235, 223, 254);
@@ -37,6 +43,10 @@
     &.is-expanded {
       flex: 0 0 calc(#{$height-small} * $expanded-panel-ratio);
       background: rgb(207, 176, 251);
+
+      @include breakpoint(medium up) {
+        flex: 0 0 calc(#{$height-medium} * $expanded-panel-ratio);
+      }
 
       @include breakpoint(large up) {
         flex: 0 0 calc(#{$height-large} * $expanded-panel-ratio);

@@ -1,0 +1,49 @@
+.rolling-phrases {
+  $line-height: 1.05;
+  --line-height-multiplier: #{$line-height};
+
+  $animation-duration-in-ms: 600;
+  --animation-duration-in-ms: #{$animation-duration-in-ms};
+
+  line-height: $line-height;
+  padding: 1rem 0 3rem 0;
+  margin-bottom: 0;
+
+  .phrase-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    height: calc(1em * var(--line-height-multiplier));
+    vertical-align: bottom;
+  }
+
+  .phrase-list {
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--animation-duration-in-ms)ms ease-in-out;
+    will-change: transform;
+  }
+
+  .phrase {
+    height: calc(1em * var(--line-height-multiplier));
+    line-height: calc(1em * var(--line-height-multiplier));
+    font-weight: bold;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .phrase-list {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
