@@ -3501,9 +3501,14 @@ a.button:hover, a.button:focus {
   overflow: hidden;
   gap: 1rem;
 }
+@media print, screen and (min-width: 40em) {
+  .hero-accordion {
+    height: 300px;
+  }
+}
 @media print, screen and (min-width: 64em) {
   .hero-accordion {
-    height: 500px;
+    height: 400px;
   }
 }
 @media screen and (min-width: 90em) {
@@ -3513,7 +3518,7 @@ a.button:hover, a.button:focus {
 }
 .hero-accordion .panel {
   flex: 1;
-  transition: flex 1s ease;
+  transition: flex 0.5s ease;
   background-size: cover;
   background-position: center;
   background: rgb(235, 223, 254);
@@ -3530,9 +3535,14 @@ a.button:hover, a.button:focus {
   flex: 0 0 calc(300px * 1.7777777778);
   background: rgb(207, 176, 251);
 }
+@media print, screen and (min-width: 40em) {
+  .hero-accordion .panel.is-expanded {
+    flex: 0 0 calc(300px * 1.7777777778);
+  }
+}
 @media print, screen and (min-width: 64em) {
   .hero-accordion .panel.is-expanded {
-    flex: 0 0 calc(500px * 1.7777777778);
+    flex: 0 0 calc(400px * 1.7777777778);
   }
 }
 @media screen and (min-width: 90em) {
