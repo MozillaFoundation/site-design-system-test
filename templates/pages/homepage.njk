@@ -1,0 +1,104 @@
+{% extends "base.njk" %}
+{% import "../partials/page-header.njk" as pageHeader %}
+
+{% block additional_style %}
+
+{% endblock%}
+
+{% block title %}Hero Accordion Test{% endblock %}
+
+{% block content %}
+<div class="grid-container">
+  {% include "../partials/grid-container-underlay.njk" %}
+  {# {{ pageHeader.setHeader("Hero Accordion Test") }} #}
+  <h1 style="font-size: 9.9rem; padding: 7rem 0 1rem 0; font-weight: 800;">
+    <img src="assets/images/mozilla-wordmark_counter-fills_horizontal.svg" alt="Mozilla Foundation" />
+  </h1>
+  <h2 class="figma-heading-1 rolling-phrases">
+    <span aria-hidden="true">
+      Make good
+      <span class="phrase-wrapper">
+        <span class="phrase-list">
+          <span class="phrase">tech the norm</span>
+          <span class="phrase">things together</span>
+          <span class="phrase">ideas matter</span>
+        </span>
+      </span>
+    </span>
+    <span class="sr-only">Make tech the norm, things together, ideas matter</span>
+  </h2>
+</div>
+
+<div class="hero-accordion" role="tablist" aria-label="Hero accordion">
+  <div class="panel is-expanded"
+    role="tab"
+    aria-selected="true"
+    aria-controls="panel1"
+    id="tab1"
+    tabindex="0"
+  >
+    <div class="panel-content figma-label-large" id="panel1">
+      Campaign Feature
+    </div>
+  </div>
+
+  <div
+    class="panel"
+    role="tab"
+    aria-selected="false"
+    aria-controls="panel2"
+    id="tab2"
+    tabindex="0"
+  >
+    <div class="panel-content figma-label-large" id="panel2">
+      Interview Spotlight
+    </div>
+  </div>
+
+  <div
+    class="panel"
+    role="tab"
+    aria-selected="false"
+    aria-controls="panel3"
+    id="tab3"
+    tabindex="0"
+  >
+    <div class="panel-content figma-label-large" id="panel3">
+      June 10, 2025
+    </div>
+  </div>
+</div>
+
+<div class="grid-container" style="padding-top: 4rem;">
+  {% set cells = [
+    { size: "small-12", note: "Newsletter signup box" }
+  ] %}
+  {% include "partials/layout/row.njk" %}
+
+  {% set cells = [
+    { size: "small-4", note: "4-column wide", height: "400px" },
+    { size: "small-4", note: "4-column wide", height: "400px" },
+    { size: "small-4", note: "4-column wide", height: "400px" }
+  ] %}
+  {% include "partials/layout/row.njk" %}
+
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-12">
+      <p style="margin-top: 2rem;">
+        Danish cookie pie brownie tiramisu. Muffin caramels carrot cake pastry cheesecake chocolate bar danish. Gummi bears chocolate cake gummi bears brownie sesame snaps. Gummi bears ice cream dragée gummi bears pudding. Tiramisu danish wafer croissant biscuit toffee marzipan. Sugar plum gummies caramels danish chocolate apple pie shortbread. Dragée muffin wafer wafer sugar plum powder. Tart jujubes marzipan jelly beans marshmallow cake gingerbread dragée fruitcake. Chocolate cake donut biscuit topping tootsie roll marzipan sugar plum soufflé. Jelly beans biscuit tiramisu jelly beans lemon drops soufflé. Tootsie roll biscuit toffee pie chocolate bar. Icing icing candy canes gummi bears cotton candy chupa chups tart jelly sweet roll.
+      </p>
+      <p>
+        Croissant toffee chupa chups chocolate cake dessert liquorice. Chocolate sesame snaps jelly beans chocolate cake jelly beans icing chocolate cake. Bear claw cake marzipan topping oat cake icing jujubes chocolate bar. Marzipan brownie marshmallow lollipop powder shortbread pastry cake shortbread. Soufflé dragée caramels brownie danish tart. Tart cake dessert cookie jujubes tart. Muffin lemon drops icing cake wafer cookie cotton candy ice cream. Tiramisu apple pie powder cupcake marzipan muffin lemon drops. Chocolate cake jujubes danish icing bonbon. Chupa chups brownie dessert cookie cupcake. Icing biscuit sweet sugar plum fruitcake sweet roll tart cake ice cream. Apple pie caramels chocolate cake jelly beans dessert cotton candy pie.
+      </p>
+      <p>
+        Cookie jujubes chocolate fruitcake gummies caramels sweet roll. Sweet roll macaroon sweet roll marzipan lemon drops bear claw. Carrot cake caramels lemon drops halvah carrot cake brownie marzipan soufflé. Croissant topping muffin sweet cake tootsie roll. Lemon drops marshmallow pie lollipop macaroon candy soufflé pastry. Carrot cake topping icing pie sweet roll pastry. Croissant soufflé chocolate bar sugar plum cookie oat cake tart macaroon. Gummies tiramisu chupa chups carrot cake cotton candy toffee sugar plum sesame snaps sweet. Croissant topping icing croissant icing macaroon dessert. Biscuit fruitcake sweet roll croissant jujubes cheesecake pudding. Halvah liquorice dessert toffee cotton candy cupcake cookie. Toffee fruitcake pie halvah pastry cake chocolate bar candy tiramisu. Icing toffee jujubes apple pie fruitcake tiramisu topping. Donut topping cheesecake jelly beans sweet roll croissant.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block additional_script %}
+  <script src="assets/js/rolling-phrases.js"></script>
+  <script src="assets/js/hero-accordion.js"></script>
+{% endblock %}

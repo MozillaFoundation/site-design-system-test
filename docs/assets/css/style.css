@@ -3578,10 +3578,10 @@ a.button:hover, a.button:focus {
 }
 
 .rolling-phrases {
-  --line-height-multiplier: 1.05;
+  --line-height-multiplier: 1.03;
   --animation-duration-in-ms: 600;
-  line-height: 1.05;
-  padding: 1rem 0 3rem 0;
+  line-height: 1.03;
+  padding-bottom: 7rem;
   margin-bottom: 0;
 }
 .rolling-phrases .phrase-wrapper {

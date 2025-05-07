@@ -1,12 +1,12 @@
 .rolling-phrases {
-  $line-height: 1.05;
+  $line-height: 1.03;
   --line-height-multiplier: #{$line-height};
 
   $animation-duration-in-ms: 600;
   --animation-duration-in-ms: #{$animation-duration-in-ms};
 
   line-height: $line-height;
-  padding: 1rem 0 3rem 0;
+  padding-bottom: 7rem;
   margin-bottom: 0;
 
   .phrase-wrapper {

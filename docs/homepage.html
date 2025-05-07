@@ -1,17 +1,86 @@
-{% extends "base.njk" %}
-{% import "../partials/page-header.njk" as pageHeader %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Hero Accordion Test
+    </title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
 
-{% block additional_style %}
 
-{% endblock%}
+  </head>
+  <body>
+    
+    <div class="grid-container" style="background: transparent;">
+      <nav style="display: flex; justify-content: space-between;">
+        <a href="index.html" class="button fill-up-btn">Back to Index</a>
+        <button class="button" id="toggleUnderlayBtn">Toggle Grid Underlay</button>
+      </nav>
+    </div>
+    
 
-{% block title %}Hero Accordion Test{% endblock %}
-
-{% block content %}
+    
 <div class="grid-container">
-  {% include "../partials/grid-container-underlay.njk" %}
-  {# {{ pageHeader.setHeader("Hero Accordion Test") }} #}
-  <h1 style="font-size: 9.9rem; padding: 5rem 0 2rem 0; font-weight: 800;">
+  <div class="grid-container-underlay hidden">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">1</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">2</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">3</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">4</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">5</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">6</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">7</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">8</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">9</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">10</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">11</div>
+      </div>
+      
+      <div class="cell small-1 medium-1 large-1">
+        <div class="cell-inner">12</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+  
+  <h1 style="font-size: 9.9rem; padding: 7rem 0 1rem 0; font-weight: 800;">
     <img src="assets/images/mozilla-wordmark_counter-fills_horizontal.svg" alt="Mozilla Foundation" />
   </h1>
   <h2 class="figma-heading-1 rolling-phrases">
@@ -27,8 +96,6 @@
     </span>
     <span class="sr-only">Make tech the norm, things together, ideas matter</span>
   </h2>
-
-
 </div>
 
 <div class="hero-accordion" role="tablist" aria-label="Hero accordion">
@@ -71,18 +138,50 @@
   </div>
 </div>
 
-<div class="grid-container">
-  {% set cells = [
-    { size: "small-12", note: "Newsletter signup box" }
-  ] %}
-  {% include "partials/layout/row.njk" %}
+<div class="grid-container" style="padding-top: 4rem;">
+  
+  <div class="grid-x grid-margin-x">
+  
+    
+    <div class="cell placeholder small-12 ">
+  <div class="cell-inner" style="height: 200px">
+    <p class="column-note">Newsletter signup box</p>
+  </div>
+</div>
 
-  {% set cells = [
-    { size: "small-4", note: "4-column wide", height: "400px" },
-    { size: "small-4", note: "4-column wide", height: "400px" },
-    { size: "small-4", note: "4-column wide", height: "400px" }
-  ] %}
-  {% include "partials/layout/row.njk" %}
+  
+</div>
+
+
+  
+  <div class="grid-x grid-margin-x">
+  
+    
+    <div class="cell placeholder small-4 ">
+  <div class="cell-inner" style="height: 400px">
+    <p class="column-note">4-column wide</p>
+  </div>
+</div>
+
+  
+    
+    <div class="cell placeholder small-4 ">
+  <div class="cell-inner" style="height: 400px">
+    <p class="column-note">4-column wide</p>
+  </div>
+</div>
+
+  
+    
+    <div class="cell placeholder small-4 ">
+  <div class="cell-inner" style="height: 400px">
+    <p class="column-note">4-column wide</p>
+  </div>
+</div>
+
+  
+</div>
+
 
   <div class="grid-x grid-margin-x">
     <div class="cell small-12">
@@ -98,9 +197,13 @@
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block additional_script %}
+
+    <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/grid-underlay.js"></script>
+    
   <script src="assets/js/rolling-phrases.js"></script>
   <script src="assets/js/hero-accordion.js"></script>
-{% endblock %}
+
+  </body>
+</html>
