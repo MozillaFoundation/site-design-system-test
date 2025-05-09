@@ -3493,6 +3493,96 @@ a.button:hover, a.button:focus {
   display: none;
 }
 
+#wordmark-svg .cls-1 {
+  fill: transparent;
+  animation: fill1 1.5s ease forwards;
+  animation-delay: 1s;
+}
+#wordmark-svg .cls-2 {
+  fill: #f07424;
+}
+#wordmark-svg .cls-3 {
+  fill: transparent;
+  animation: fill3 1.5s ease forwards;
+  animation-delay: 1.9s;
+}
+#wordmark-svg .cls-4 {
+  fill: transparent;
+  animation: fill4 1.5s ease forwards;
+  animation-delay: 2.4s;
+}
+#wordmark-svg .cls-5 {
+  fill: #23a5df;
+  animation: fill5 1.5s ease forwards;
+  animation-delay: 2.9s;
+}
+#wordmark-svg .cls-6 {
+  fill: #37e9ad;
+}
+@keyframes fill1 {
+  to {
+    fill: #f7b210;
+  }
+}
+@keyframes fill2 {
+  to {
+    fill: #f07424;
+  }
+}
+@keyframes fill3 {
+  to {
+    fill: #ffff42;
+  }
+}
+@keyframes fill4 {
+  to {
+    fill: #91daf6;
+  }
+}
+@keyframes fill5 {
+  to {
+    fill: #23a5df;
+  }
+}
+@keyframes fill6 {
+  to {
+    fill: #37e9ad;
+  }
+}
+#wordmark-svg #a-fill-2 {
+  clip-path: inset(0 100% 0 0);
+  animation: wipeReveal 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+#wordmark-svg #m-fill-2 {
+  clip-path: inset(100% 0 0 0);
+  animation: wipeReveal 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+#wordmark-svg #_11-fill {
+  clip-path: inset(100% 0 0 0);
+  animation: wipeReveal 0.5s ease-out forwards;
+  animation-delay: 2.5s;
+}
+@keyframes wipeReveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+#wordmark-svg .cls-6,
+#wordmark-svg .radial-reveal {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: growMask 0.7s ease-out forwards;
+  animation-delay: 1.5s;
+}
+@keyframes growMask {
+  to {
+    transform: scale(1);
+  }
+}
+
 .hero-accordion {
   background: white;
   max-width: 100%;

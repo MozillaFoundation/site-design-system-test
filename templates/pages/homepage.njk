@@ -12,7 +12,8 @@
   {% include "../partials/grid-container-underlay.njk" %}
   {# {{ pageHeader.setHeader("Hero Accordion Test") }} #}
   <h1 style="font-size: 9.9rem; padding: 7rem 0 1rem 0; font-weight: 800;">
-    <img src="assets/images/mozilla-wordmark_counter-fills_horizontal.svg" alt="Mozilla Foundation" />
+    {% include "../partials/wordmark-svg.html" %}
+    {# <img src="assets/images/mozilla-wordmark_counter-fills_horizontal.svg" alt="Mozilla Foundation" /> #}
   </h1>
   <h2 class="figma-heading-1 rolling-phrases">
     <span aria-hidden="true">
@@ -40,12 +41,12 @@
     <div class="panel-content" id="panel1">
       <h3 class="figma-label-large" style="z-index: 100;">Campaign Feature</h3>
       <div class="video-cover">
-        <iframe
-      src="https://www.youtube.com/embed/sN-yrZ1UnEY?si=Poja2Ly8D4Pj3GvP&autoplay=1&mute=1&controls=0&loop=1&playlist=sN-yrZ1UnEY"
-      allow="autoplay; fullscreen"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
+        {# <iframe
+          src="https://www.youtube.com/embed/sN-yrZ1UnEY?si=Poja2Ly8D4Pj3GvP&autoplay=1&mute=1&controls=0&loop=1&playlist=sN-yrZ1UnEY"
+          allow="autoplay; fullscreen"
+          frameborder="0"
+          allowfullscreen
+        ></iframe> #}
       </div>
     </div>
   </div>
@@ -78,6 +79,7 @@
 </div>
 
 <div class="grid-container" style="padding-top: 4rem;">
+  {% include "../partials/grid-container-underlay.njk" %}
   {% set cells = [
     { size: "small-12", note: "Newsletter signup box" }
   ] %}
