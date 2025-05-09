@@ -9,13 +9,11 @@ class HeroAccordion {
 
   collapseAllPanels() {
     this.panels.forEach(panel => {
-      panel.classList.remove("is-expanded");
       panel.setAttribute("aria-selected", "false");
     });
   }
 
   expandPanel(panel) {
-    panel.classList.add("is-expanded");
     panel.setAttribute("aria-selected", "true");
   }
 

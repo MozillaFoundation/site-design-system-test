@@ -40,7 +40,7 @@
     align-items: center;
     justify-content: center;
 
-    &.is-expanded {
+    &[aria-selected="true"] {
       flex: 0 0 calc(#{$height-small} * $expanded-panel-ratio);
       background: rgb(207, 176, 251);
 
@@ -57,7 +57,7 @@
       }
     }
 
-    &:not(.is-expanded) {
+    &[aria-selected="false"] {
       flex: 1;
     }
 
@@ -94,7 +94,7 @@
     .panel {
       flex: auto;
 
-      &.is-expanded {
+      &[aria-selected="true"] {
         flex: auto;
       }
 

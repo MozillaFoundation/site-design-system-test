@@ -1,5 +1,5 @@
 <div class="hero-accordion" role="tablist" aria-label="Hero accordion">
-  <div class="panel is-expanded"
+  <div class="panel"
     role="tab"
     aria-selected="true"
     aria-controls="panel1"
@@ -19,29 +19,9 @@
     </div>
   </div>
 
-  <div
-    class="panel"
-    role="tab"
-    aria-selected="false"
-    aria-controls="panel2"
-    id="tab2"
-    tabindex="0"
-  >
-    <div class="panel-content figma-label-large" id="panel2">
-      <h3 class="figma-label-large" style="z-index: 100;">Interview Spotlight</h3>
-    </div>
-  </div>
+  {% set cells = [ { selected: "false", panel_order: "2" } ] %}
+  {% include "partials/hero-accordion-text-image-panel.njk" %}
 
-  <div
-    class="panel"
-    role="tab"
-    aria-selected="false"
-    aria-controls="panel3"
-    id="tab3"
-    tabindex="0"
-  >
-    <div class="panel-content figma-label-large" id="panel3">
-      <h3 class="figma-label-large" style="z-index: 100;">June 10, 2025</h3>
-    </div>
-  </div>
+  {% set cells = [ { selected: "false", panel_order: "3" } ] %}
+  {% include "partials/hero-accordion-text-image-panel.njk" %}
 </div>
