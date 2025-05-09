@@ -19,9 +19,17 @@
     </div>
   </div>
 
-  {% set cells = [ { selected: "false", panel_order: "2" } ] %}
-  {% include "partials/hero-accordion-text-image-panel.njk" %}
+  {% set text_image_panels = [
+    { selected: "false", panel_order: "2", img_type: "badge", header: "Panel #2" },
+    { selected: "false", panel_order: "3", img_type: "volunteer", header: "Panel #3" }
+  ] %}
 
-  {% set cells = [ { selected: "false", panel_order: "3" } ] %}
-  {% include "partials/hero-accordion-text-image-panel.njk" %}
+  {% for text_image_panel in text_image_panels %}
+    {% set selected = text_image_panel.selected %}
+    {% set panel_order = text_image_panel.panel_order %}
+    {% set img_type = text_image_panel.img_type %}
+    {% set header = text_image_panel.header %}
+    {% include "partials/hero-accordion-text-image-panel.njk" %}
+  {% endfor %}
+
 </div>

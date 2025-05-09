@@ -4,6 +4,7 @@
   $height-medium: 300px;
   $height-large: 400px;
   $height-xxlarge: 600px;
+  $animation-duration: 1s;
 
   background: white;
   max-width: 100%;
@@ -27,13 +28,13 @@
 
   .panel {
     flex: 1;
-    transition: flex 0.5s ease;
+    transition: flex $animation-duration ease-out;
     background-size: cover;
     background-position: center;
-    background: rgb(235, 223, 254);
+    // background: rgb(235, 223, 254);
+    border: 2px solid rgb(50, 44, 44);
     font-weight: bold;
     cursor: pointer;
-    border: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -42,7 +43,7 @@
 
     &[aria-selected="true"] {
       flex: 0 0 calc(#{$height-small} * $expanded-panel-ratio);
-      background: rgb(207, 176, 251);
+      // background: rgb(207, 176, 251);
 
       @include breakpoint(medium up) {
         flex: 0 0 calc(#{$height-medium} * $expanded-panel-ratio);
@@ -55,19 +56,57 @@
       @include breakpoint(xxlarge up) {
         flex: 0 0 calc(#{$height-xxlarge} * $expanded-panel-ratio);
       }
+
+      .text-content {
+        width: 50%;
+      }
+
+      .image-content {
+        width: 50%;
+      }
     }
 
     &[aria-selected="false"] {
       flex: 1;
+
+      .text-content {
+        width: 0%;
+      }
+
+      .image-content {
+        width: 100%;
+      }
     }
 
     .panel-content {
       width: 100%;
       height: 100%;
       display: flex;
-      padding: 1rem;
       overflow: hidden;
       position: relative;
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        transition: width $animation-duration ease-out;
+        background: #eee;
+      }
+
+      .image-content {
+        transition: width $animation-duration ease-out;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.badge {
+          background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Badge.jpg");
+        }
+
+        &.volunteer {
+          background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Volunteers.jpg");
+        }
+      }
     }
 
     .video-cover {
