@@ -27,7 +27,8 @@ class HeroAccordion {
 
   bindEvents() {
     this.panels.forEach(panel => {
-      panel.addEventListener("click", this.handlePanelClick.bind(this));
+      panel.addEventListener("mouseenter", this.handlePanelClick.bind(this));
+      panel.addEventListener("mouseleave", this.handlePanelClick.bind(this));
     });
   }
 }
