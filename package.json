@@ -8,7 +8,7 @@
     "build:all": "npm run clean && npm run build:sass && npm run build",
     "watch:js": "chokidar \"assets/js/**/*.js\" --initial -c \"npm run build\"",
     "watch:sass": "chokidar \"assets/scss/**/*.scss\" --initial -c \"npm run build:sass\"",
-    "watch:templates": "chokidar 'templates/**/*.njk' -c 'npm run build'",
+    "watch:templates": "chokidar 'templates/**/*.njk' 'templates/**/*.html' -c 'npm run build'",
     "chokidar": "npm-run-all --parallel watch:templates watch:sass watch:js",
     "serve": "browser-sync start --server 'docs' --files 'docs/**/*' --port 3100",
     "watch": "npm-run-all build:all --parallel chokidar serve"

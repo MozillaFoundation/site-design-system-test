@@ -1,5 +1,5 @@
-// JavaScript to toggle the underlay visibility
 document.getElementById('toggleUnderlayBtn')?.addEventListener('click', function() {
-    const underlay = document.querySelector('.grid-container-underlay');
+    document.querySelectorAll('.grid-container-underlay').forEach((underlay) => {
     underlay.classList.toggle('hidden');
+  });
 });
