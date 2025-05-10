@@ -8,12 +8,12 @@
   $height-xxlarge: 600px;
   $panel-transitions: (
     expand: (
-      duration: 0.5s,
-      timing: ease-out
+      duration: 0.8s,
+      timing: cubic-bezier(0.7, 0, 0.15, 1)
     ),
     collapse: (
-      duration: 0.5s,
-      timing: ease-out
+      duration: 0.8s,
+      timing: cubic-bezier(0.7, 0, 0.15, 1)
     )
   );
   $expand: map-get($panel-transitions, expand);
@@ -44,10 +44,10 @@
   }
 
   .panel {
+    cursor: pointer;
     flex: 1;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
     padding: 0;
     margin: 0;
     display: flex;
@@ -181,6 +181,14 @@
         height: auto;
         aspect-ratio: 16 / 9;
       }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel,
+    .text-content,
+    .image-content {
+      transition: none !important;
     }
   }
 }
