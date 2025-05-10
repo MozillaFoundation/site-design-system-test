@@ -3608,14 +3608,10 @@ a.button:hover, a.button:focus {
   }
 }
 .hero-accordion .panel {
+  cursor: pointer;
   flex: 1;
-  transition: flex 0.5s ease;
   background-size: cover;
   background-position: center;
-  background: rgb(235, 223, 254);
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
   padding: 0;
   margin: 0;
   display: flex;
@@ -3623,34 +3619,90 @@ a.button:hover, a.button:focus {
   justify-content: center;
 }
 .hero-accordion .panel[aria-selected=true] {
-  flex: 0 0 calc(300px * 1.7777777778);
-  background: rgb(207, 176, 251);
+  flex: 0 0 calc(300px * 1.7777777778 * 1);
+  transition: flex 0.8s cubic-bezier(0.7, 0, 0.15, 1);
 }
 @media print, screen and (min-width: 40em) {
   .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(300px * 1.7777777778);
+    flex: 0 0 calc(300px * 1.7777777778 * 1);
   }
 }
 @media print, screen and (min-width: 64em) {
   .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(400px * 1.7777777778);
+    flex: 0 0 calc(400px * 1.7777777778 * 1);
   }
 }
 @media screen and (min-width: 90em) {
   .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(600px * 1.7777777778);
+    flex: 0 0 calc(600px * 1.7777777778 * 1);
   }
+}
+.hero-accordion .panel[aria-selected=true] .panel-content .text-content {
+  transform: translateX(-100%);
+}
+.hero-accordion .panel[aria-selected=true] .panel-content .image-content {
+  width: 50%;
 }
 .hero-accordion .panel[aria-selected=false] {
   flex: 1;
+  transition: flex 0.8s cubic-bezier(0.7, 0, 0.15, 1);
+}
+.hero-accordion .panel[aria-selected=false] .panel-content .text-content {
+  transform: translateX(0%);
+}
+.hero-accordion .panel[aria-selected=false] .panel-content .image-content {
+  width: 100%;
 }
 .hero-accordion .panel .panel-content {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 1rem;
+  justify-content: end;
   overflow: hidden;
   position: relative;
+}
+.hero-accordion .panel .panel-content .text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: black;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.15, 1);
+  padding: 1rem;
+  width: calc(300px * 1.7777777778 * 0.5);
+  height: 100%;
+}
+@media print, screen and (min-width: 40em) {
+  .hero-accordion .panel .panel-content .text-content {
+    width: calc(300px * 1.7777777778 * 0.5);
+  }
+}
+@media print, screen and (min-width: 64em) {
+  .hero-accordion .panel .panel-content .text-content {
+    width: calc(400px * 1.7777777778 * 0.5);
+  }
+}
+@media screen and (min-width: 90em) {
+  .hero-accordion .panel .panel-content .text-content {
+    width: calc(600px * 1.7777777778 * 0.5);
+  }
+}
+.hero-accordion .panel .panel-content .image-content {
+  transition: width 0.8s cubic-bezier(0.7, 0, 0.15, 1);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+}
+.hero-accordion .panel .panel-content .image-content.badge {
+  background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Badge.jpg");
+}
+.hero-accordion .panel .panel-content .image-content.volunteer {
+  background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Volunteers.jpg");
 }
 .hero-accordion .panel .video-cover {
   position: absolute;
@@ -3680,6 +3732,13 @@ a.button:hover, a.button:focus {
   .hero-accordion .panel .panel-content {
     height: auto;
     aspect-ratio: 16/9;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-accordion .panel,
+  .hero-accordion .text-content,
+  .hero-accordion .image-content {
+    transition: none !important;
   }
 }
 

@@ -1,9 +1,27 @@
+@use "sass:math";
+
 .hero-accordion {
   $expanded-panel-ratio: 16 / 9;
   $height-small: 300px;
   $height-medium: 300px;
   $height-large: 400px;
   $height-xxlarge: 600px;
+  $panel-transitions: (
+    expand: (
+      duration: 0.8s,
+      timing: cubic-bezier(0.7, 0, 0.15, 1)
+    ),
+    collapse: (
+      duration: 0.8s,
+      timing: cubic-bezier(0.7, 0, 0.15, 1)
+    )
+  );
+  $expand: map-get($panel-transitions, expand);
+  $collapse: map-get($panel-transitions, collapse);
+
+  @function expanded-panel-width($height, $fraction: 1) {
+    @return calc(#{$height} * #{$expanded-panel-ratio} * #{$fraction});
+  }
 
   background: white;
   max-width: 100%;
@@ -26,14 +44,10 @@
   }
 
   .panel {
+    cursor: pointer;
     flex: 1;
-    transition: flex 0.5s ease;
     background-size: cover;
     background-position: center;
-    background: rgb(235, 223, 254);
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -41,33 +55,98 @@
     justify-content: center;
 
     &[aria-selected="true"] {
-      flex: 0 0 calc(#{$height-small} * $expanded-panel-ratio);
-      background: rgb(207, 176, 251);
+      flex: 0 0 expanded-panel-width($height-small);
+      transition: flex map-get($collapse, duration) map-get($collapse, timing);
 
       @include breakpoint(medium up) {
-        flex: 0 0 calc(#{$height-medium} * $expanded-panel-ratio);
+        flex: 0 0 expanded-panel-width($height-medium);
       }
 
       @include breakpoint(large up) {
-        flex: 0 0 calc(#{$height-large} * $expanded-panel-ratio);
+        flex: 0 0 expanded-panel-width($height-large);
       }
 
       @include breakpoint(xxlarge up) {
-        flex: 0 0 calc(#{$height-xxlarge} * $expanded-panel-ratio);
+        flex: 0 0 expanded-panel-width($height-xxlarge);
+      }
+
+      .panel-content {
+        .text-content {
+          transform: translateX(-100%);
+        }
+
+        .image-content {
+          width: 50%;
+        }
       }
     }
 
     &[aria-selected="false"] {
       flex: 1;
+      transition: flex map-get($expand, duration) map-get($expand, timing);
+
+      .panel-content {
+        .text-content {
+          transform: translateX(0%);
+        }
+
+        .image-content {
+          width: 100%;
+        }
+      }
     }
 
     .panel-content {
       width: 100%;
       height: 100%;
       display: flex;
-      padding: 1rem;
+      justify-content: end;
       overflow: hidden;
       position: relative;
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: black;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(-100%);
+        transition: transform map-get($expand, duration) map-get($expand, timing);
+        padding: 1rem;
+        width: expanded-panel-width($height-small, 0.5);
+        height: 100%;
+
+        @include breakpoint(medium up) {
+          width: expanded-panel-width($height-medium, 0.5);
+        }
+
+        @include breakpoint(large up) {
+          width: expanded-panel-width($height-large, 0.5);
+        }
+
+        @include breakpoint(xxlarge up) {
+          width: expanded-panel-width($height-xxlarge, 0.5);
+        }
+      }
+
+      .image-content {
+        transition: width map-get($expand, duration) map-get($expand, timing);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 2;
+
+        &.badge {
+          background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Badge.jpg");
+        }
+
+        &.volunteer {
+          background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Volunteers.jpg");
+        }
+      }
     }
 
     .video-cover {
@@ -102,6 +181,14 @@
         height: auto;
         aspect-ratio: 16 / 9;
       }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel,
+    .text-content,
+    .image-content {
+      transition: none !important;
     }
   }
 }
