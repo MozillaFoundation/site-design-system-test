@@ -77,6 +77,8 @@
 
         .image-content {
           width: 50%;
+          filter: brightness(100%);
+          transition: filter map-get($collapse, duration) map-get($collapse, timing);
         }
       }
     }
@@ -92,6 +94,8 @@
 
         .image-content {
           width: 100%;
+          filter: brightness(50%);
+          transition: filter map-get($expand, duration) map-get($expand, timing);
         }
       }
     }

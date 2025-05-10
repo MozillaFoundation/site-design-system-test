@@ -3642,6 +3642,8 @@ a.button:hover, a.button:focus {
 }
 .hero-accordion .panel[aria-selected=true] .panel-content .image-content {
   width: 50%;
+  filter: brightness(100%);
+  transition: filter 0.8s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=false] {
   flex: 1;
@@ -3652,6 +3654,8 @@ a.button:hover, a.button:focus {
 }
 .hero-accordion .panel[aria-selected=false] .panel-content .image-content {
   width: 100%;
+  filter: brightness(50%);
+  transition: filter 0.8s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel .panel-content {
   width: 100%;
