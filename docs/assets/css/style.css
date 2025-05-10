@@ -3622,26 +3622,26 @@ a.button:hover, a.button:focus {
   align-items: center;
   justify-content: center;
 }
-.hero-accordion .panel.is-expanded {
+.hero-accordion .panel[aria-selected=true] {
   flex: 0 0 calc(300px * 1.7777777778);
   background: rgb(207, 176, 251);
 }
 @media print, screen and (min-width: 40em) {
-  .hero-accordion .panel.is-expanded {
+  .hero-accordion .panel[aria-selected=true] {
     flex: 0 0 calc(300px * 1.7777777778);
   }
 }
 @media print, screen and (min-width: 64em) {
-  .hero-accordion .panel.is-expanded {
+  .hero-accordion .panel[aria-selected=true] {
     flex: 0 0 calc(400px * 1.7777777778);
   }
 }
 @media screen and (min-width: 90em) {
-  .hero-accordion .panel.is-expanded {
+  .hero-accordion .panel[aria-selected=true] {
     flex: 0 0 calc(600px * 1.7777777778);
   }
 }
-.hero-accordion .panel:not(.is-expanded) {
+.hero-accordion .panel[aria-selected=false] {
   flex: 1;
 }
 .hero-accordion .panel .panel-content {
@@ -3674,7 +3674,7 @@ a.button:hover, a.button:focus {
   .hero-accordion .panel {
     flex: auto;
   }
-  .hero-accordion .panel.is-expanded {
+  .hero-accordion .panel[aria-selected=true] {
     flex: auto;
   }
   .hero-accordion .panel .panel-content {

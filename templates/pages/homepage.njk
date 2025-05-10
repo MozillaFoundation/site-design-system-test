@@ -5,12 +5,12 @@
 
 {% endblock%}
 
-{% block title %}Hero Accordion Test{% endblock %}
+{% block title %}Homepage Hero Test{% endblock %}
 
 {% block content %}
 <div class="grid-container">
   {% include "../partials/grid-container-underlay.njk" %}
-  {# {{ pageHeader.setHeader("Hero Accordion Test") }} #}
+  {# {{ pageHeader.setHeader("Homepage Hero Test") }} #}
   <h1 style="font-size: 9.9rem; padding: 7rem 0 1rem 0; font-weight: 800;">
     {% include "../partials/wordmark-svg.html" %}
     {# <img src="assets/images/mozilla-wordmark_counter-fills_horizontal.svg" alt="Mozilla Foundation" /> #}
@@ -30,53 +30,7 @@
   </h2>
 </div>
 
-<div class="hero-accordion" role="tablist" aria-label="Hero accordion">
-  <div class="panel is-expanded"
-    role="tab"
-    aria-selected="true"
-    aria-controls="panel1"
-    id="tab1"
-    tabindex="0"
-  >
-    <div class="panel-content" id="panel1">
-      <h3 class="figma-label-large" style="z-index: 100;">Campaign Feature</h3>
-      <div class="video-cover">
-        {# <iframe
-          src="https://www.youtube.com/embed/sN-yrZ1UnEY?si=Poja2Ly8D4Pj3GvP&autoplay=1&mute=1&controls=0&loop=1&playlist=sN-yrZ1UnEY"
-          allow="autoplay; fullscreen"
-          frameborder="0"
-          allowfullscreen
-        ></iframe> #}
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="panel"
-    role="tab"
-    aria-selected="false"
-    aria-controls="panel2"
-    id="tab2"
-    tabindex="0"
-  >
-    <div class="panel-content figma-label-large" id="panel2">
-      <h3 class="figma-label-large" style="z-index: 100;">Interview Spotlight</h3>
-    </div>
-  </div>
-
-  <div
-    class="panel"
-    role="tab"
-    aria-selected="false"
-    aria-controls="panel3"
-    id="tab3"
-    tabindex="0"
-  >
-    <div class="panel-content figma-label-large" id="panel3">
-      <h3 class="figma-label-large" style="z-index: 100;">June 10, 2025</h3>
-    </div>
-  </div>
-</div>
+{% include "../partials/hero-accordion.njk" %}
 
 <div class="grid-container" style="padding-top: 4rem;">
   {% include "../partials/grid-container-underlay.njk" %}

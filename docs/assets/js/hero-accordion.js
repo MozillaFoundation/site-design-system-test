@@ -1,11 +1,34 @@
-document.querySelectorAll('.hero-accordion .panel').forEach(panel => {
-  panel.addEventListener('click', () => {
-    document.querySelectorAll('.hero-accordion .panel').forEach(p => {
-      p.classList.remove('is-expanded');
-      p.setAttribute('aria-selected', 'false');
-    });
+class HeroAccordion {
+  constructor(containerSelector = ".hero-accordion") {
+    this.container = document.querySelector(containerSelector);
+    if (!this.container) return;
 
-    panel.classList.add('is-expanded');
-    panel.setAttribute('aria-selected', 'true');
-  });
-});
+    this.panels = this.container.querySelectorAll(".panel");
+    this.bindEvents();
+  }
+
+  collapseAllPanels() {
+    this.panels.forEach(panel => {
+      panel.setAttribute("aria-selected", "false");
+    });
+  }
+
+  expandPanel(panel) {
+    panel.setAttribute("aria-selected", "true");
+  }
+
+  handlePanelClick(event) {
+    const panel = event.currentTarget;
+    this.collapseAllPanels();
+    this.expandPanel(panel);
+  }
+
+  bindEvents() {
+    this.panels.forEach(panel => {
+      panel.addEventListener("mouseenter", this.handlePanelClick.bind(this));
+      panel.addEventListener("mouseleave", this.handlePanelClick.bind(this));
+    });
+  }
+}
+
+new HeroAccordion();
