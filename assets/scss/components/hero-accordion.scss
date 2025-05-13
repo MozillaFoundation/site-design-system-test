@@ -1,101 +1,49 @@
 @use "sass:math";
 
 .hero-accordion {
-  $expanded-panel-ratio: 16 / 9;
-  $height-small: 300px;
-  $height-medium: 300px;
-  $height-large: 400px;
-  $height-xxlarge: 600px;
-  $panel-transitions: (
-    expand: (
-      duration: 0.8s,
-      timing: cubic-bezier(0.7, 0, 0.15, 1)
-    ),
-    collapse: (
-      duration: 0.8s,
-      timing: cubic-bezier(0.7, 0, 0.15, 1)
-    )
-  );
-  $expand: map-get($panel-transitions, expand);
-  $collapse: map-get($panel-transitions, collapse);
+  --gap-size: 1rem;
+  --expanded-panel-width: 50vw;
+  --expanded-panel-ratio: calc(16 / 9);
 
-  @function expanded-panel-width($height, $fraction: 1) {
-    @return calc(#{$height} * #{$expanded-panel-ratio} * #{$fraction});
-  }
+  $panel-transition: (
+    duration: 1s,
+    timing: cubic-bezier(0.7, 0, 0.15, 1)
+  );
 
   background: white;
-  max-width: 100%;
-  width: 100vw;
-  height: $height-small;
   display: flex;
   overflow: hidden;
-  gap: 1rem;
-
-  @include breakpoint(medium up) {
-    height: $height-medium;
-  }
-
-  @include breakpoint(large up) {
-    height: $height-large;
-  }
-
-  @include breakpoint(xxlarge up) {
-    height: $height-xxlarge;
-  }
+  width: 100vw;
+  height: calc(var(--expanded-panel-width) / var(--expanded-panel-ratio));
+  gap: var(--gap-size);
 
   .panel {
     cursor: pointer;
-    flex: 1;
-    background-size: cover;
-    background-position: center;
     padding: 0;
     margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 calc((100vw - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
+    transition: flex map-get($panel-transition, duration) map-get($panel-transition, timing);
+    overflow: hidden;
+    border-radius: 2rem;
 
     &[aria-selected="true"] {
-      flex: 0 0 expanded-panel-width($height-small);
-      transition: flex map-get($collapse, duration) map-get($collapse, timing);
-
-      @include breakpoint(medium up) {
-        flex: 0 0 expanded-panel-width($height-medium);
-      }
-
-      @include breakpoint(large up) {
-        flex: 0 0 expanded-panel-width($height-large);
-      }
-
-      @include breakpoint(xxlarge up) {
-        flex: 0 0 expanded-panel-width($height-xxlarge);
-      }
+      flex: 0 0 var(--expanded-panel-width);
 
       .panel-content {
         .text-content {
           transform: translateX(-100%);
+
+          .inner {
+            transform: translateX(0);
+            transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
+          }
         }
 
         .image-content {
           width: 50%;
           filter: brightness(100%);
-          transition: filter map-get($collapse, duration) map-get($collapse, timing);
-        }
-      }
-    }
-
-    &[aria-selected="false"] {
-      flex: 1;
-      transition: flex map-get($expand, duration) map-get($expand, timing);
-
-      .panel-content {
-        .text-content {
-          transform: translateX(0%);
-        }
-
-        .image-content {
-          width: 100%;
-          filter: brightness(50%);
-          transition: filter map-get($expand, duration) map-get($expand, timing);
+          transition: filter map-get($panel-transition, duration) map-get($panel-transition, timing);
         }
       }
     }
@@ -117,31 +65,30 @@
         position: absolute;
         top: 0;
         right: 0;
-        transform: translateX(-100%);
-        transition: transform map-get($expand, duration) map-get($expand, timing);
+
+        transform: translateX(0%);
+        transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
+
         padding: 1rem;
-        width: expanded-panel-width($height-small, 0.5);
+        width: calc(var(--expanded-panel-width) * 0.5);
         height: 100%;
 
-        @include breakpoint(medium up) {
-          width: expanded-panel-width($height-medium, 0.5);
-        }
-
-        @include breakpoint(large up) {
-          width: expanded-panel-width($height-large, 0.5);
-        }
-
-        @include breakpoint(xxlarge up) {
-          width: expanded-panel-width($height-xxlarge, 0.5);
+        .inner {
+          transform: translateX(-100%);
+          transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
         }
       }
 
       .image-content {
-        transition: width map-get($expand, duration) map-get($expand, timing);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 2;
+        width: calc(var(--expanded-panel-width) * 0.5);
+        filter: brightness(30%);
+        transition:
+          width map-get($panel-transition, duration) map-get($panel-transition, timing),
+          filter map-get($panel-transition, duration) map-get($panel-transition, timing);
 
         &.badge {
           background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Badge.jpg");
@@ -153,21 +100,21 @@
       }
     }
 
-    .video-cover {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: calc(100% * #{$expanded-panel-ratio}); // to "cover" 100% height
-      height: 100%;
-      transform: translate(-50%, -50%);
-      pointer-events: none; // optional: disables interaction if you want video as background only
+    // .video-cover {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   width: calc(100% * #{$expanded-panel-ratio}); // to "cover" 100% height
+    //   height: 100%;
+    //   transform: translate(-50%, -50%);
+    //   pointer-events: none;
 
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-      }
-    }
+    //   iframe {
+    //     width: 100%;
+    //     height: 100%;
+    //     border: 0;
+    //   }
+    // }
   }
 
   @include breakpoint(small down) {
@@ -176,15 +123,7 @@
 
     .panel {
       flex: auto;
-
-      &[aria-selected="true"] {
-        flex: auto;
-      }
-
-      .panel-content {
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
+      aspect-ratio:var(--expanded-panel-ratio);
     }
   }
 
