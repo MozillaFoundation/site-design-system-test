@@ -4,8 +4,21 @@ class HeroAccordion {
     if (!this.container) return;
 
     this.panels = this.container.querySelectorAll(".panel");
+    this.setCssVariables();
     this.bindEvents();
   }
+
+  setCssVariables() {
+    const panelCount = this.panels.length;
+    const styles = getComputedStyle(this.container);
+    const gapSize = styles.getPropertyValue("gap") || "0px";
+    const gapValue = parseFloat(gapSize) || 0
+    const totalGap = gapValue * (panelCount - 1);
+
+    this.container.style.setProperty("--panel-count", panelCount);
+    this.container.style.setProperty("--total-gap", `${totalGap}px`);
+  }
+
 
   collapseAllPanels() {
     this.panels.forEach(panel => {

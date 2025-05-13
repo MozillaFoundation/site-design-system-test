@@ -1,36 +1,34 @@
 @use "sass:math";
 
 .hero-accordion {
-  $gap-size: 1rem;
-  $expanded-panel-width-base: 50vw;
-  $expanded-panel-ratio: 16 / 9;
+  --gap-size: 1rem;
+  --expanded-panel-width: 50vw;
+  --expanded-panel-ratio: calc(16 / 9);
 
   $panel-transition: (
     duration: 1s,
     timing: cubic-bezier(0.7, 0, 0.15, 1)
   );
 
-  @function expanded-panel-width($fraction: 1) {
-    @return calc(#{$expanded-panel-width-base} * #{$fraction});
-  }
-
   background: white;
   display: flex;
   overflow: hidden;
-  gap: $gap-size;
   width: 100vw;
-  height: calc(expanded-panel-width() / #{$expanded-panel-ratio});
+  height: calc(var(--expanded-panel-width) / var(--expanded-panel-ratio));
+  gap: var(--gap-size);
 
   .panel {
     cursor: pointer;
     padding: 0;
     margin: 0;
     display: flex;
-    flex: 1;
+    flex: 0 0 calc((100vw - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
     transition: flex map-get($panel-transition, duration) map-get($panel-transition, timing);
+    overflow: hidden;
+    border-radius: 2rem;
 
     &[aria-selected="true"] {
-      flex: 0 0 expanded-panel-width();
+      flex: 0 0 var(--expanded-panel-width);
 
       .panel-content {
         .text-content {
@@ -72,7 +70,7 @@
         transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
 
         padding: 1rem;
-        width: expanded-panel-width(0.5);
+        width: calc(var(--expanded-panel-width) * 0.5);
         height: 100%;
 
         .inner {
@@ -86,8 +84,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 2;
-        width: expanded-panel-width(0.5);
-        filter: brightness(50%);
+        width: calc(var(--expanded-panel-width) * 0.5);
+        filter: brightness(30%);
         transition:
           width map-get($panel-transition, duration) map-get($panel-transition, timing),
           filter map-get($panel-transition, duration) map-get($panel-transition, timing);
@@ -125,7 +123,7 @@
 
     .panel {
       flex: auto;
-      aspect-ratio: $expanded-panel-ratio;
+      aspect-ratio:var(--expanded-panel-ratio);
     }
   }
 
