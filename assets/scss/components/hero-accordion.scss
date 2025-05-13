@@ -8,11 +8,11 @@
   $height-xxlarge: 600px;
   $panel-transitions: (
     expand: (
-      duration: 0.8s,
+      duration: 1s,
       timing: cubic-bezier(0.7, 0, 0.15, 1)
     ),
     collapse: (
-      duration: 0.8s,
+      duration: 1s,
       timing: cubic-bezier(0.7, 0, 0.15, 1)
     )
   );
@@ -73,6 +73,11 @@
       .panel-content {
         .text-content {
           transform: translateX(-100%);
+
+          .inner {
+            transform: translateX(0);
+            transition: transform map-get($collapse, duration) map-get($collapse, timing);
+          }
         }
 
         .image-content {
@@ -90,6 +95,12 @@
       .panel-content {
         .text-content {
           transform: translateX(0%);
+          transition: transform map-get($expand, duration) map-get($expand, timing);
+
+          .inner {
+            transform: translateX(-100%);
+            transition: transform map-get($expand, duration) map-get($expand, timing);
+          }
         }
 
         .image-content {
@@ -117,8 +128,10 @@
         position: absolute;
         top: 0;
         right: 0;
+
         transform: translateX(-100%);
         transition: transform map-get($expand, duration) map-get($expand, timing);
+
         padding: 1rem;
         width: expanded-panel-width($height-small, 0.5);
         height: 100%;
@@ -133,6 +146,11 @@
 
         @include breakpoint(xxlarge up) {
           width: expanded-panel-width($height-xxlarge, 0.5);
+        }
+
+        .inner {
+          transform: translateX(-100%);
+          transition: transform map-get($expand, duration) map-get($expand, timing);
         }
       }
 
