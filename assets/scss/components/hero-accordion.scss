@@ -1,11 +1,9 @@
 @use "sass:math";
 
 .hero-accordion {
+  $expanded-panel-width: 60vw;
   $expanded-panel-ratio: 16 / 9;
-  $height-small: 300px;
-  $height-medium: 300px;
-  $height-large: 400px;
-  $height-xxlarge: 600px;
+
   $panel-transitions: (
     expand: (
       duration: 1s,
@@ -19,29 +17,17 @@
   $expand: map-get($panel-transitions, expand);
   $collapse: map-get($panel-transitions, collapse);
 
-  @function expanded-panel-width($height, $fraction: 1) {
-    @return calc(#{$height} * #{$expanded-panel-ratio} * #{$fraction});
+  @function expanded-panel-width($fraction: 1) {
+    @return calc(#{$expanded-panel-width} * #{$fraction});
   }
 
   background: white;
   max-width: 100%;
   width: 100vw;
-  height: $height-small;
   display: flex;
   overflow: hidden;
   gap: 1rem;
-
-  @include breakpoint(medium up) {
-    height: $height-medium;
-  }
-
-  @include breakpoint(large up) {
-    height: $height-large;
-  }
-
-  @include breakpoint(xxlarge up) {
-    height: $height-xxlarge;
-  }
+  height: calc($expanded-panel-width / $expanded-panel-ratio);
 
   .panel {
     cursor: pointer;
@@ -57,20 +43,8 @@
     transition: flex map-get($expand, duration) map-get($expand, timing);
 
     &[aria-selected="true"] {
-      flex: 0 0 expanded-panel-width($height-small);
+      flex: 0 0 expanded-panel-width();
       transition: flex map-get($collapse, duration) map-get($collapse, timing);
-
-      @include breakpoint(medium up) {
-        flex: 0 0 expanded-panel-width($height-medium);
-      }
-
-      @include breakpoint(large up) {
-        flex: 0 0 expanded-panel-width($height-large);
-      }
-
-      @include breakpoint(xxlarge up) {
-        flex: 0 0 expanded-panel-width($height-xxlarge);
-      }
 
       .panel-content {
         .text-content {
@@ -112,20 +86,8 @@
         transition: transform map-get($expand, duration) map-get($expand, timing);
 
         padding: 1rem;
-        width: expanded-panel-width($height-small, 0.5);
+        width: expanded-panel-width(0.5);
         height: 100%;
-
-        @include breakpoint(medium up) {
-          width: expanded-panel-width($height-medium, 0.5);
-        }
-
-        @include breakpoint(large up) {
-          width: expanded-panel-width($height-large, 0.5);
-        }
-
-        @include breakpoint(xxlarge up) {
-          width: expanded-panel-width($height-xxlarge, 0.5);
-        }
 
         .inner {
           transform: translateX(-100%);

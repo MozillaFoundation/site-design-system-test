@@ -3587,25 +3587,10 @@ a.button:hover, a.button:focus {
   background: white;
   max-width: 100%;
   width: 100vw;
-  height: 300px;
   display: flex;
   overflow: hidden;
   gap: 1rem;
-}
-@media print, screen and (min-width: 40em) {
-  .hero-accordion {
-    height: 300px;
-  }
-}
-@media print, screen and (min-width: 64em) {
-  .hero-accordion {
-    height: 400px;
-  }
-}
-@media screen and (min-width: 90em) {
-  .hero-accordion {
-    height: 600px;
-  }
+  height: 33.75vw;
 }
 .hero-accordion .panel {
   cursor: pointer;
@@ -3620,23 +3605,8 @@ a.button:hover, a.button:focus {
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=true] {
-  flex: 0 0 calc(300px * 1.7777777778 * 1);
+  flex: 0 0 calc(60vw * 1);
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
-}
-@media print, screen and (min-width: 40em) {
-  .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(300px * 1.7777777778 * 1);
-  }
-}
-@media print, screen and (min-width: 64em) {
-  .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(400px * 1.7777777778 * 1);
-  }
-}
-@media screen and (min-width: 90em) {
-  .hero-accordion .panel[aria-selected=true] {
-    flex: 0 0 calc(600px * 1.7777777778 * 1);
-  }
 }
 .hero-accordion .panel[aria-selected=true] .panel-content .text-content {
   transform: translateX(-100%);
@@ -3670,23 +3640,8 @@ a.button:hover, a.button:focus {
   transform: translateX(0%);
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
   padding: 1rem;
-  width: calc(300px * 1.7777777778 * 0.5);
+  width: calc(60vw * 0.5);
   height: 100%;
-}
-@media print, screen and (min-width: 40em) {
-  .hero-accordion .panel .panel-content .text-content {
-    width: calc(300px * 1.7777777778 * 0.5);
-  }
-}
-@media print, screen and (min-width: 64em) {
-  .hero-accordion .panel .panel-content .text-content {
-    width: calc(400px * 1.7777777778 * 0.5);
-  }
-}
-@media screen and (min-width: 90em) {
-  .hero-accordion .panel .panel-content .text-content {
-    width: calc(600px * 1.7777777778 * 0.5);
-  }
 }
 .hero-accordion .panel .panel-content .text-content .inner {
   transform: translateX(-100%);
