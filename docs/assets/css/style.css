@@ -3609,7 +3609,6 @@ a.button:hover, a.button:focus {
 }
 .hero-accordion .panel {
   cursor: pointer;
-  flex: 1;
   background-size: cover;
   background-position: center;
   padding: 0;
@@ -3617,6 +3616,8 @@ a.button:hover, a.button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
+  transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=true] {
   flex: 0 0 calc(300px * 1.7777777778 * 1);
@@ -3649,23 +3650,6 @@ a.button:hover, a.button:focus {
   filter: brightness(100%);
   transition: filter 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
-.hero-accordion .panel[aria-selected=false] {
-  flex: 1;
-  transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
-}
-.hero-accordion .panel[aria-selected=false] .panel-content .text-content {
-  transform: translateX(0%);
-  transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
-}
-.hero-accordion .panel[aria-selected=false] .panel-content .text-content .inner {
-  transform: translateX(-100%);
-  transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
-}
-.hero-accordion .panel[aria-selected=false] .panel-content .image-content {
-  width: 100%;
-  filter: brightness(50%);
-  transition: filter 1s cubic-bezier(0.7, 0, 0.15, 1);
-}
 .hero-accordion .panel .panel-content {
   width: 100%;
   height: 100%;
@@ -3683,7 +3667,7 @@ a.button:hover, a.button:focus {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateX(-100%);
+  transform: translateX(0%);
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
   padding: 1rem;
   width: calc(300px * 1.7777777778 * 0.5);
@@ -3714,6 +3698,9 @@ a.button:hover, a.button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
+  width: 100%;
+  filter: brightness(50%);
+  transition: filter 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel .panel-content .image-content.badge {
   background-image: url("../../assets/images/2024_MozFestHouseAmsterdam_Badge.jpg");
