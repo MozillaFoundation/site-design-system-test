@@ -3590,7 +3590,7 @@ a.button:hover, a.button:focus {
   display: flex;
   overflow: hidden;
   gap: 1rem;
-  height: 33.75vw;
+  height: 28.125vw;
 }
 .hero-accordion .panel {
   cursor: pointer;
@@ -3605,7 +3605,7 @@ a.button:hover, a.button:focus {
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=true] {
-  flex: 0 0 calc(60vw * 1);
+  flex: 0 0 calc(50vw * 1);
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=true] .panel-content .text-content {
@@ -3640,7 +3640,7 @@ a.button:hover, a.button:focus {
   transform: translateX(0%);
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
   padding: 1rem;
-  width: calc(60vw * 0.5);
+  width: calc(50vw * 0.5);
   height: 100%;
 }
 .hero-accordion .panel .panel-content .text-content .inner {
@@ -3653,7 +3653,7 @@ a.button:hover, a.button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
-  width: 100%;
+  width: calc(50vw * 0.5);
   filter: brightness(50%);
   transition: filter 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
