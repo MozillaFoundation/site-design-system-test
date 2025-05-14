@@ -5,6 +5,7 @@
   --expanded-panel-width: 50vw;
   --expanded-panel-ratio: calc(16 / 9);
   --accordion-width: calc(100vw - var(--scrollbar-width));
+  --collapsed-panel-width: calc((var(--accordion-width) - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
 
   $panel-transition: (
     duration: 1s,
@@ -24,7 +25,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    flex: 0 0 calc((var(--accordion-width) - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
+    flex: 0 0 var(--collapsed-panel-width);
     transition: flex map-get($panel-transition, duration) map-get($panel-transition, timing);
     overflow: hidden;
     border-radius: 2rem;
@@ -43,9 +44,8 @@
         }
 
         .image-content {
-          width: 50%;
+          width: calc(var(--expanded-panel-width) * 0.5);
           filter: brightness(100%);
-          transition: filter map-get($panel-transition, duration) map-get($panel-transition, timing);
         }
       }
     }
@@ -70,12 +70,11 @@
 
         transform: translateX(0%);
         transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
-
-        padding: 1rem;
         width: calc(var(--expanded-panel-width) * 0.5);
         height: 100%;
 
         .inner {
+          padding: 1rem;
           transform: translateX(-100%);
           transition: transform map-get($panel-transition, duration) map-get($panel-transition, timing);
         }
@@ -86,7 +85,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 2;
-        width: calc(var(--expanded-panel-width) * 0.5);
+        width: var(--collapsed-panel-width);
         filter: brightness(30%);
         transition:
           width map-get($panel-transition, duration) map-get($panel-transition, timing),

@@ -3588,6 +3588,7 @@ a.button:hover, a.button:focus {
   --expanded-panel-width: 50vw;
   --expanded-panel-ratio: calc(16 / 9);
   --accordion-width: calc(100vw - var(--scrollbar-width));
+  --collapsed-panel-width: calc((var(--accordion-width) - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
   background: white;
   display: flex;
   width: 100%;
@@ -3601,7 +3602,7 @@ a.button:hover, a.button:focus {
   padding: 0;
   margin: 0;
   display: flex;
-  flex: 0 0 calc((var(--accordion-width) - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
+  flex: 0 0 var(--collapsed-panel-width);
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
   overflow: hidden;
   border-radius: 2rem;
@@ -3617,9 +3618,8 @@ a.button:hover, a.button:focus {
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel[aria-selected=true] .panel-content .image-content {
-  width: 50%;
+  width: calc(var(--expanded-panel-width) * 0.5);
   filter: brightness(100%);
-  transition: filter 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
 .hero-accordion .panel .panel-content {
   width: 100%;
@@ -3640,11 +3640,11 @@ a.button:hover, a.button:focus {
   right: 0;
   transform: translateX(0%);
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
-  padding: 1rem;
   width: calc(var(--expanded-panel-width) * 0.5);
   height: 100%;
 }
 .hero-accordion .panel .panel-content .text-content .inner {
+  padding: 1rem;
   transform: translateX(-100%);
   transition: transform 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
@@ -3653,7 +3653,7 @@ a.button:hover, a.button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
-  width: calc(var(--expanded-panel-width) * 0.5);
+  width: var(--collapsed-panel-width);
   filter: brightness(30%);
   transition: width 1s cubic-bezier(0.7, 0, 0.15, 1), filter 1s cubic-bezier(0.7, 0, 0.15, 1);
 }
