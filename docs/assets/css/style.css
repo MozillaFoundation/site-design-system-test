@@ -3584,13 +3584,15 @@ a.button:hover, a.button:focus {
 }
 
 .hero-accordion {
-  --gap-size: 1rem;
+  --gap-size: 16px;
   --expanded-panel-width: 50vw;
   --expanded-panel-ratio: calc(16 / 9);
+  --accordion-width: calc(100vw - var(--scrollbar-width));
   background: white;
   display: flex;
-  overflow: hidden;
-  width: 100vw;
+  width: 100%;
+  max-width: var(--accordion-width);
+  box-sizing: border-box;
   height: calc(var(--expanded-panel-width) / var(--expanded-panel-ratio));
   gap: var(--gap-size);
 }
@@ -3599,7 +3601,7 @@ a.button:hover, a.button:focus {
   padding: 0;
   margin: 0;
   display: flex;
-  flex: 0 0 calc((100vw - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
+  flex: 0 0 calc((var(--accordion-width) - var(--expanded-panel-width) - var(--total-gap)) / (var(--panel-count) - 1));
   transition: flex 1s cubic-bezier(0.7, 0, 0.15, 1);
   overflow: hidden;
   border-radius: 2rem;

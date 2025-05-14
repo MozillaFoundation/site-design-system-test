@@ -8,15 +8,25 @@ class HeroAccordion {
     this.bindEvents();
   }
 
+  getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+
   setCssVariables() {
     const panelCount = this.panels.length;
     const styles = getComputedStyle(this.container);
-    const gapSize = styles.getPropertyValue("gap") || "0px";
+    const gapSize = styles.getPropertyValue("--gap-size").trim() || "0px";
+    if (!gapSize.endsWith("px")) {
+      console.warn("Expected the CSS variable --gap-size in px, but got:", gapSize);
+    }
     const gapValue = parseFloat(gapSize) || 0
     const totalGap = gapValue * (panelCount - 1);
+    const scrollbarWidth = this.getScrollbarWidth();
 
     this.container.style.setProperty("--panel-count", panelCount);
     this.container.style.setProperty("--total-gap", `${totalGap}px`);
+    this.container.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`);
   }
 
 
