@@ -1,8 +1,3 @@
-const phraseList = document.querySelector('.phrase-list');
-const phrases = Array.from(phraseList.children);
-const root = phraseList.closest('.rolling-phrases');
-
-// configuration variables
 const CSS_VARS = {
   lineHeightMultiplier: '--line-height-multiplier',
   animationDuration: '--animation-duration-in-ms',
@@ -15,49 +10,76 @@ const FALLBACKS = {
 };
 
 // get CSS variable and parse as float with fallback
-const getCssVarFloat = (varName, fallback) =>
-  parseFloat(getComputedStyle(root).getPropertyValue(varName)) || fallback;
+const getCssVarFloat = (element, varName, fallback) =>
+  parseFloat(getComputedStyle(element).getPropertyValue(varName)) || fallback;
 
-const lineHeightMultiplier = getCssVarFloat(
-  CSS_VARS.lineHeightMultiplier,
-  FALLBACKS.lineHeight
-);
+document.querySelectorAll('.phrase-list').forEach(phraseList => {
+  const phrases = Array.from(phraseList.children);
+  const root = phraseList.closest('.rolling-phrases');
 
-const transitionDurationMs = getCssVarFloat(
-  CSS_VARS.animationDuration,
-  FALLBACKS.animationDurationMs
-);
+  const lineHeightMultiplier = getCssVarFloat(
+    root,
+    CSS_VARS.lineHeightMultiplier,
+    FALLBACKS.lineHeight
+  );
 
-const pauseDurationMs = FALLBACKS.pauseDurationMs;
+  const transitionDurationMs = getCssVarFloat(
+    root,
+    CSS_VARS.animationDuration,
+    FALLBACKS.animationDurationMs
+  );
 
-// duplicate phrases for seamless looping
-phrases.forEach(phrase => {
-  const clone = phrase.cloneNode(true);
-  phraseList.appendChild(clone);
-});
+  const pauseDurationMs = FALLBACKS.pauseDurationMs;
 
-let index = 0;
+  // duplicate phrases for seamless looping
+  phrases.forEach(phrase => {
+    const clone = phrase.cloneNode(true);
+    phraseList.appendChild(clone);
+  });
 
-function rollLoop() {
-  index += 1;
-  const total = phrases.length;
+  let index = 0;
 
-  // animate scroll
-  phraseList.style.transition = `transform ${transitionDurationMs}ms ease-in-out`;
-  phraseList.style.transform = `translateY(-${index * lineHeightMultiplier}em)`;
+  function updateWrapperWidth(phrase) {
+    const phraseWrapper = phrase.closest(".phrase-wrapper");
+    if (!phraseWrapper) return;
 
-  // after transition ends
-  setTimeout(() => {
-    if (index >= total) {
-      // instantly jump back to start
-      phraseList.style.transition = 'none';
-      phraseList.style.transform = 'translateY(0)';
-      index = 0;
+    // Temporarily reset width to auto to measure content
+    phraseWrapper.style.width = "auto";
+
+    // Measure and apply the new width
+    const width = phrase.offsetWidth;
+    phraseWrapper.style.width = `${width}px`;
+  }
+
+
+  function rollLoop() {
+    index += 1;
+    const total = phrases.length;
+
+    // animate scroll
+    phraseList.style.transition = `transform ${transitionDurationMs}ms ease-in-out`;
+    phraseList.style.transform = `translateY(-${index * lineHeightMultiplier}em)`;
+
+
+    if (root.getAttribute("data-style-type") === "3") {
+      // Update wrapper width based on the next phrase
+      const visiblePhraseIndex = index % phrases.length;
+      updateWrapperWidth(phrases[visiblePhraseIndex]);
     }
-  }, transitionDurationMs + 100); // buffer to ensure animation is done
 
-  setTimeout(rollLoop, pauseDurationMs); // schedule next scroll
-}
+    // after transition ends
+    setTimeout(() => {
+      if (index >= total) {
+        // instantly jump back to start
+        phraseList.style.transition = 'none';
+        phraseList.style.transform = 'translateY(0)';
+        index = 0;
+      }
+    }, transitionDurationMs + 100); // buffer to ensure animation is done
 
-// initial delay
-setTimeout(rollLoop, pauseDurationMs);
+    setTimeout(rollLoop, pauseDurationMs); // schedule next scroll
+  }
+
+  // initial delay
+  setTimeout(rollLoop, pauseDurationMs);
+});
