@@ -9,7 +9,6 @@ const FALLBACKS = {
   pauseDurationMs: 3000,
 };
 
-// Get CSS variable and parse as float with fallback
 const getCssVarFloat = (element, varName, fallback) => {
   const value = parseFloat(getComputedStyle(element).getPropertyValue(varName));
   if (isNaN(value)) {
@@ -19,8 +18,7 @@ const getCssVarFloat = (element, varName, fallback) => {
   return value;
 };
 
-// Initialize one rolling phrase block
-function initRollingPhrases(phraseList) {
+export function initRollingPhrases(phraseList) {
   const phrases = Array.from(phraseList.children);
   const root = phraseList.closest('.rolling-phrases');
   if (!root) return;
@@ -39,7 +37,6 @@ function initRollingPhrases(phraseList) {
 
   const pauseDurationMs = FALLBACKS.pauseDurationMs;
 
-  // Duplicate phrases for seamless looping
   phrases.forEach(phrase => {
     const clone = phrase.cloneNode(true);
     phraseList.appendChild(clone);
@@ -84,5 +81,6 @@ function initRollingPhrases(phraseList) {
   }
 }
 
-// Apply to all elements
-document.querySelectorAll('.phrase-list').forEach(initRollingPhrases);
+export function initAllRollingPhrases() {
+  document.querySelectorAll('.phrase-list').forEach(initRollingPhrases);
+}
